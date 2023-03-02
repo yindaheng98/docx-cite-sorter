@@ -26,6 +26,25 @@ def get_citations(path):
     return citations
 
 
+def get_citations_shine(citations):
+    citation_shine = []
+    for citation in citations:
+        for c in citation:
+            if c not in citation_shine:
+                citation_shine.append(c)
+    return citation_shine
+
+
+def sort_citations(citations, citations_shine):
+    citations_sorted = []
+    for citation in citations:
+        citation_sorted = []
+        for c in citation:
+            citation_sorted.append(citations_shine.index(c) + 1)
+        citations_sorted.append(citation_sorted)
+    return citations_sorted
+
+
 def get_references(path):
     document = Document(path)
     numId = None
