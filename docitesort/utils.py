@@ -10,7 +10,7 @@ def parse_citation(citation: str):
     for i in range(len(citations)):
         if '-' in citations[i]:
             s, e = citations[i].split('-')[0:2]
-            citations_num.extend(range(int(s), int(e)))
+            citations_num.extend(range(int(s), int(e) + 1))
         else:
             citations_num.append(int(citations[i]))
     return citations_num

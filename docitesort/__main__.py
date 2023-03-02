@@ -10,17 +10,12 @@ citations = get_citations(args.file)
 citation_shine = get_citations_shine(citations)
 citations_sorted = sort_citations(citations, citation_shine)
 
-
 references = get_references(args.file)
 references_sorted = [None] * len(citation_shine)
 for dst, src in enumerate(citation_shine):
     references_sorted[dst] = references[src - 1]
 
-print("Before")
-print(citations)
-for par in references:
-    print(par.text)
-print("After")
-print(citations_sorted)
+for a, b in zip(citations, citations_sorted):
+    print(a, b)
 for par in references_sorted:
     print(par.text)
